@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract-tests-wiremock.local/contracts/pix-cob.json",
+  "title": "PIX Cob POST /v2/cob response",
+  "type": "object",
+  "required": ["cobId", "status", "chave"],
+  "properties": {
+    "cobId": { "type": "string" },
+    "status": { "type": "string" },
+    "chave": { "type": "string" },
+    "calendario": { "type": "object" },
+    "valor": { "type": "object" }
+  },
+  "additionalProperties": true
+}
