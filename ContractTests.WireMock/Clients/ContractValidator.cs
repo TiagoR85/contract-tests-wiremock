@@ -2,6 +2,8 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using System.Xml;
+using System.Xml.Schema;
 using Json.Schema;
 
 namespace ContractTests.WireMock.Clients;
@@ -46,6 +48,24 @@ public static class ContractValidator
                 errors.AddRange(CollectErrors(detail));
         }
         return errors;
+    }
+
+    public static XmlDocument ValidateXml(string xsdFile, string xml)
+    {
+        var document = new XmlDocument();
+        document.LoadXml(xml);
+
+        var schemas = new XmlSchemaSet();
+        using (var reader = XmlReader.Create(new StringReader(ReadResource(xsdFile))))
+            schemas.Add(null, reader);
+
+        document.Schemas = schemas;
+        var errors = new List<string>();
+        document.Validate((_, e) => errors.Add(e.Message));
+        if (errors.Count > 0)
+            throw new ContractViolationException(errors);
+
+        return document;
     }
 
     internal static string ReadResource(string fileName)
