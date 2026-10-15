@@ -1,0 +1,15 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    uses: TiagoR85/ci-pipeline-templates/.github/workflows/reusable-dotnet-ci.yml@v1
+    with:
+      test-project: ContractTests.WireMock/ContractTests.WireMock.csproj
+      dotnet-version: "10.0.x"
+      coverage-threshold: "0"
