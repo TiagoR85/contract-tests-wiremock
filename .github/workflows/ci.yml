@@ -12,4 +12,4 @@ jobs:
     with:
       test-project: ContractTests.WireMock/ContractTests.WireMock.csproj
       dotnet-version: "10.0.x"
-      coverage-threshold: "0"
+      coverage-threshold: "80"
