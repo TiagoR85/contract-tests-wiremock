@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract-tests-wiremock.local/contracts/httpbin-get.json",
+  "title": "HTTPBin GET /get response",
+  "type": "object",
+  "required": ["origin", "url"],
+  "properties": {
+    "origin": { "type": "string" },
+    "url": { "type": "string" },
+    "args": { "type": "object" },
+    "headers": { "type": "object" }
+  },
+  "additionalProperties": true
+}
