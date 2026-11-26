@@ -1,4 +1,4 @@
-# Status do Projeto — v1.0.0 (2026-11-12)
+# Status do Projeto — v1.0.1 (2026-11-26)
 
 ## Estado Atual
 

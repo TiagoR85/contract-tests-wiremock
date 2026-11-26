@@ -3,6 +3,12 @@
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/);
 versão em [SemVer](https://semver.org/lang/pt-BR/).
 
+## [1.0.1] — 2026-11-26
+
+### Corrigido
+- `dotnet test` falhava no restore com **NU1902** (`Microsoft.AspNetCore.WebUtilities` 2.3.0, transitivo do `WireMock.Net` 2.19.0). `WireMock.Net` atualizado para **2.34.0** em `Directory.Packages.props`; o transitivo vulnerável saiu da árvore e o restore voltou a ficar limpo (sem `NuGetAudit=false`, sem `NoWarn` novo).
+- Nenhuma mudança de código de teste foi necessária: os 15 testes continuam verdes com a API nova do WireMock.Net.
+
 ## [1.0.0] — 2026-11-12
 
 ### Adicionado
